@@ -1,0 +1,130 @@
+* {
+    margin: 0; 
+    padding: 0;
+}
+
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-color: #000222;
+    color: aliceblue;
+}
+
+image {
+    display: block;
+}
+
+#menu {
+    background-color: red;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+#menu ul {
+    list-style: none;
+}
+
+#menu ul li {
+    display: inline;
+}
+
+#menu ul li a {
+    font-size: 17px;
+    color: #dcebaf;
+    text-decoration: none;
+    padding: 20px 30px;
+    display: inline-block;
+}
+
+#menu ul li a:hover {
+    color: black;
+    background-color: #4b889c;
+    transition: 0.5s all;
+}
+
+#logo {
+    margin-right: 50px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background-color: red;
+    padding: 0 50px;
+}
+
+#perfil {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    padding: 20px 30px;
+    text-align: left;
+    line-height: 1.3;
+}
+
+table {
+    padding: 30px;
+}
+
+p.comFundo {
+    background-color: #0b0e3d;
+    padding: 30px;
+}
+
+.tituloPrimario {
+    text-align: center;
+    font-size: 45px;
+    padding-bottom: 30px;
+}
+
+ul.listaFormatada {
+    background-color: #0b0e3d;
+    padding-left: 10%;
+    padding-bottom: 20px;
+    text-align: left;
+    font-size: 20px;
+}
+
+ul.listaFormatada li {
+    padding: 4px;
+}
+
+ul.sublistaFormatada {
+    background-color: #0b0e3d;
+    padding-left: 10px;
+    text-align: left;
+    font-size: 15px;
+}
+
+#descricao {
+    width: 90%;
+    background-color: #0b0e3d;
+    border: 20px solid #000222; /* Pra aplicar espaço entre a foto e o texto */
+    line-height: 1.3;
+}
+
+#contato {
+    width: 53%;
+    background-color: #0b0e3d;
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.divFormatada {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+}
