@@ -2,11 +2,15 @@
 <html lang="pt-br">
 <head><title>Perfil - Currículo</title>  <meta charset="utf-8">
 <link rel="stylesheet" href="Curriculo.css">
-<link rel="icon" type="image/png" href="imgs/favicon.png"></head>
+<link rel="icon" type="image/png" href="imgs/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+</head>
 
 <body>
     <header>
-    <div id="logo">  <img src="imgs/curriculum.png" width=50>  </div>
+    <div id="logo">  <img src="imgs/logo.png" width=60>  </div>
     <nav id="menu">
         <ul>
             <li>  <a href="index.html"> Perfil </a>  </li>
@@ -19,16 +23,22 @@
 
     <div id="perfil">
         <table>
-            <tr><td rowspan="3">  <img src="imgs/lucas.jpg" width="200">  </td>
-                <!-- Coloquei a tag 'p' pra puxar o style do css-->
-                <th>  <h1 style="padding-left: 18px;"><p> Lucas de Morais Fracaro </p></h1>  </th>
+            <tr>
+                <th>
+                    <h1 id="nome" class="digitando">
+                        Lucas de Morais Fracaro <span class="cursor"></span>
+                    </h1>
+                </th>
+                <td rowspan="3" style="text-align: right; vertical-align: top;">
+                    <img src="imgs/lucas.jpg" width=270 style="float: right; padding-top: 30px;">
+                </td>
             </tr>
 
             <tr><td>
             <section id="descricao">
                 <p>
                     Olá, meu nome é Lucas e tenho 16 anos, sou apaixonado em informática desde criança. <br>
-                    Estou no 2º ano do Ensino Médio e penso em me especializar em Backend. <br>
+                    Estou no Segundo Ano do Ensino Médio e penso em me especializar em Backend. <br>
                     Sempre disposto a aprender com os outros, em equipe ou individualmente. <br><br>
                     Meus passatempos favoritos são: <br>
                     Aprimorar meus projetos do GitHub, aprender mais sobre programação, e tocar guitarra 🎸
@@ -40,20 +50,20 @@
     </div>
 
     <footer id="contato">
-        <p><a target="_blank" href="https://wa.me/5511995323131">
+        <p><a class="links" target="_blank" href="https://wa.me/5511995323131">
         <img src="imgs/WhatsApp.png" width="130px"></a></p>
 
-        <p><a target="_blank" href="https://www.linkedin.com/in/lucas-de-morais-fracaro-4159b4309/">
+        <p><a class="links" target="_blank" href="https://www.linkedin.com/in/lucas-de-morais-fracaro-4159b4309/">
         <img src="imgs/LinkedIn.svg" width="130px"></a></p>
 
-        <p><a target="_blank" href="https://www.github.com/olucasfracaro">
+        <p><a class="links" target="_blank" href="https://www.github.com/olucasfracaro">
         <img src="imgs/GitHub.png" width="90px"></a></p>
 
-        <p><a target="_blank" href="https://www.instagram.com/olucasfracaro">
+        <p><a class="links" target="_blank" href="https://www.instagram.com/olucasfracaro">
         <img src="imgs/Instagram.png" width="34px"></a></p>
         
-        <p><a target="_blank" href="mailto:lucasfracaro0403@gmail.com">
-            <img src="imgs/Gmail.png" width="34px"></a></p>
+        <p><a class="links" target="_blank" href="mailto:lucasfracaro0403@gmail.com">
+        <img src="imgs/Gmail.png" width="34px"></a></p>
     </footer>
 
 </body>
