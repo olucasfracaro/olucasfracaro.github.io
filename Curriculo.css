@@ -3,12 +3,24 @@
     padding: 0;
 }
 
+:root{
+    --preto: #000000;
+    --verdeEscuro: #010e04;
+    --verdeClaro: #021205;
+    --verde: #06c432;
+    --verdeHeader: #1ad646;
+    --fonteP: 1.5rem;
+    --fonteLi: 1.5rem;
+    --fonteMenu: 1.7rem;
+    --fonteH1: 3rem;
+}
+
 html {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Jersey 10", sans-serif;
 }
 
 body {
-    background-color: #000222;
+    background-color: var(--preto); /* cor anterior: #000222 */
     color: aliceblue;
 }
 
@@ -17,31 +29,40 @@ image {
 }
 
 #menu {
-    background-color: red;
+    background-color: var(--verdeEscuro);
+    font-size: var(--fonteMenu);
     font-weight: bold;
     display: flex;
     justify-content: center;
+    align-items: center; /*adicionado para centralizar verticalmente*/
+    width: 100%; /*garante que o menu ocupe toda a largura*/
 }
 
 #menu ul {
     list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 100%; /*garante que a ul ocupe toda a largura do menu*/
 }
 
 #menu ul li {
-    display: inline;
+    display: block;
 }
 
 #menu ul li a {
-    font-size: 17px;
-    color: #dcebaf;
+    font-size: var(--fonteMenu);
+    color: var(--verde);
     text-decoration: none;
     padding: 20px 30px;
     display: inline-block;
 }
 
 #menu ul li a:hover {
-    color: black;
-    background-color: #4b889c;
+    color: var(--preto);
+    background-color:var(--verde);
     transition: 0.5s all;
 }
 
@@ -52,7 +73,7 @@ image {
 header {
     display: flex;
     align-items: center;
-    background-color: red;
+    background-color: var(--verdeEscuro);
     padding: 0 50px;
 }
 
@@ -66,6 +87,7 @@ p {
     padding: 20px 30px;
     text-align: left;
     line-height: 1.3;
+    font-size: var(--fonteP);
 }
 
 table {
@@ -73,22 +95,24 @@ table {
 }
 
 p.comFundo {
-    background-color: #0b0e3d;
+    background-color: var(--verdeClaro);
+    font-size: var(--fonteP);
     padding: 30px;
 }
 
 .tituloPrimario {
     text-align: center;
-    font-size: 45px;
+    font-size: var(--fonteH1);
     padding-bottom: 30px;
+    color: var(--verdeHeader);
 }
 
 ul.listaFormatada {
-    background-color: #0b0e3d;
+    background-color: var(--verdeClaro);
     padding-left: 10%;
     padding-bottom: 20px;
     text-align: left;
-    font-size: 20px;
+    font-size: var(--fonteLi);
 }
 
 ul.listaFormatada li {
@@ -96,22 +120,22 @@ ul.listaFormatada li {
 }
 
 ul.sublistaFormatada {
-    background-color: #0b0e3d;
+    background-color: var(--verdeClaro);
     padding-left: 10px;
     text-align: left;
-    font-size: 15px;
+    font-size: var(--fonteLi);
 }
 
 #descricao {
     width: 90%;
-    background-color: #0b0e3d;
-    border: 20px solid #000222; /* Pra aplicar espaço entre a foto e o texto */
+    background-color: var(--verdeClaro);
+    border: 20px solid var(--verdeEscuro); /* Pra aplicar espaço entre a foto e o texto */
     line-height: 1.3;
 }
 
 #contato {
-    width: 53%;
-    background-color: #0b0e3d;
+    width: 87%; /*era 53%*/
+    background-color: var(--verdeEscuro);
     font-size: 15px;
     font-weight: bold;
     display: flex;
@@ -120,6 +144,7 @@ ul.sublistaFormatada {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    border-radius: 10px;
 }
 
 .divFormatada {
@@ -127,4 +152,47 @@ ul.sublistaFormatada {
     justify-content: center;
     text-align: center;
     padding: 10px;
+}
+
+.links img {
+  transition: transform 0.2s ease;
+}
+
+.links:hover img {
+  transform: scale(1.13);
+}
+
+.digitando {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: .15em solid transparent;
+  letter-spacing: .05em;
+  animation: escrevendo 1.5s steps(27, end) forwards;
+  padding-left: 18px;
+  color: var(--verdeHeader);
+  padding: 20px 30px;
+  text-align: left;
+  font-size: var(--fonteH1);
+  line-height: 1.3;
+}
+
+.cursor {
+  display: inline-block;
+  width: .12em;
+  background: currentColor;
+  margin-left: 2px;
+  animation: pisca 0.9s steps(1) infinite;
+  height: 1em;
+  vertical-align: middle;
+}
+
+@keyframes escrevendo {
+  from { width: 0 }
+  to { width: 27ch }
+}
+
+@keyframes pisca {
+  0%, 49% { opacity: 1 }
+  50%, 100% { opacity: 0 }
 }
