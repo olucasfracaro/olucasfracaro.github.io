@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head><title>Experiências - Currículo</title>  <meta charset="utf-8">
-<link rel="stylesheet" href="Curriculo.css">
+<link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/png" href="imgs/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@
 
     <div id="experiencias" class="divFormatada">
         <table>
-            <tr>  <td><h1 class="tituloPrimario">Experiências</h1>  </td></tr>
+            <tr>  <td><h1 class="tituloPrimario"><span class="underline-animado"> ✨ Experiências </span></h1>  </td></tr>
     
             <tr><td>
             <p class="comFundo" style="padding: 10px;">
@@ -45,7 +45,7 @@
                     <li>Experiências diversas de apresentação em público</li>
                     
                     <li>Vários projetos pessoais disponíveis no GitHub
-                    <a target="_blank" href="https://github.com/olucasfracaro/">¹</a></li>
+                    <a target="_blank" href="https://github.com/olucasfracaro/" id="refs">¹</a></li>
                 </ul>
             </p>
             </td></tr>
@@ -53,4 +53,9 @@
     </div>
 
 </body>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector('.underline-animado').classList.add('animar');
+});
+</script>
 </html>

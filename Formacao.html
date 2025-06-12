@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head><title>Formações - Currículo</title>  <meta charset="utf-8">
-<link rel="stylesheet" href="Curriculo.css">
+<link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/png" href="imgs/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,33 +22,101 @@
     </header>
 
     <div id="formacao" class="divFormatada">
-    <table>
-        <tr>  <td><h1 class="tituloPrimario">Formação</h1>  </td></tr>
+      <table>
+          <tr>  <td><h1 class="tituloPrimario"><span class="underline-animado"> 🎓 Formação </span></h1>  </td></tr>
 
-        <tr><td>
-        <p class="comFundo">
-            Em 2025 estou cursando o 2º ano do Ensino Médio no Colégio ENIAC <br>
-            e fazendo o técnico integrado de informática.<br><br>
-            O primeiro certificado que recebi foi em 2024 do CMOV, onde aprendi sobre carreira e empregabilidade. <br>
-            O segundo é do curso de férias de 2025 do ENIAC, no qual aperfeiçoei minhas habilidades em versionamento de código.
-        </p>
-        </td></tr>
-    </table> 
+          <tr><td>
+          <p class="comFundo">
+              Em 2025 estou cursando o segundo ano do Ensino Médio no Colégio ENIAC
+              e fazendo o técnico integrado de informática.<br><br>
+              O primeiro certificado que recebi foi em 2024 do CMOV, onde aprendi sobre carreira e empregabilidade. <br>
+              O segundo é do curso de férias de 2025 do ENIAC, no qual aperfeiçoei minhas habilidades em versionamento de código.
+          </p>
+          </td></tr>
+      </table> 
     </div>
 
     <div id="certificados" class="divFormatada">
-    <table>
-        <tr>  <td><h1 class="tituloPrimario">Certificados</h1>  </td></tr>
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="certs/Certificado ENIAC - Git e GitHub.png" alt="Certificado ENIAC" class="carousel-img" tabindex="0">
+                <img src="certs/Certificado CMOV - Carreira e Empregabilidade.png" alt="Certificado CMOV" class="carousel-img" tabindex="0">
+            </div>
+            <button class="carousel-btn prev">&#10094;</button>
+            <button class="carousel-btn next">&#10095;</button>
+        </div>
+    </div>
 
-        <tr><td style="padding: 30px;">
-            <img src="certs/Certificado ENIAC - Git e GitHub.png" width="500">
-        </td></tr>
-
-        <tr><td>
-            <img src="certs/Certificado CMOV - Carreira e Empregabilidade.png" width="500">
-        </td></tr>
-    </table>    
+        <!-- Modal para zoom -->
+    <div id="modalZoom" class="modal-zoom">
+        <span class="close-zoom">&times;</span>
+        <img class="modal-content-zoom" id="imgZoom">
     </div>
 
 </body>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelector('.underline-animado').classList.add('animar');
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  const imgs = document.querySelectorAll('.carousel-img');
+  let current = 0;
+
+  function show(index) {
+    imgs.forEach((img, i) => img.classList.toggle('active', i === index));
+  }
+  show(current);
+
+  document.querySelector('.carousel-btn.next').onclick = () => {
+    current = (current + 1) % imgs.length;
+    show(current);
+  };
+  document.querySelector('.carousel-btn.prev').onclick = () => {
+    current = (current - 1 + imgs.length) % imgs.length;
+    show(current);
+  };
+
+  // Zoom Modal
+  const modal = document.getElementById("modalZoom");
+  const modalImg = document.getElementById("imgZoom");
+  const closeBtn = document.querySelector('.close-zoom');
+
+  imgs.forEach(img => {
+    img.onclick = function() {
+      modal.classList.add('open');
+      modalImg.src = this.src;
+      modalImg.alt = this.alt;
+    };
+    img.onkeydown = function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.click();
+      }
+    };
+  });
+
+  closeBtn.onclick = function() {
+    modal.classList.remove('open');
+    modalImg.src = "";
+  };
+
+  modal.onclick = function(e) {
+    if (e.target === modal) {
+      modal.classList.remove('open');
+      modalImg.src = "";
+    }
+  };
+
+  // ESC para fechar
+  window.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) {
+      modal.classList.remove('open');
+      modalImg.src = "";
+    }
+  });
+});
+
+</script>
+
 </html>
