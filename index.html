@@ -1,70 +1,99 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head><title>Perfil - Currículo</title>  <meta charset="utf-8">
-<link rel="stylesheet" href="style.css">
-<link rel="icon" type="image/png" href="imgs/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+<head>
+  <title>Perfil - Currículo</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="imgs/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-    <div id="logo">  <img src="imgs/logo.png" width=60>  </div>
+  <header style="visibility: hidden;">
     <nav id="menu">
-        <ul>
-            <li>  <a href="index.html"> Perfil </a>  </li>
-            <li>  <a href="Experiencias.html"> Experiências </a>  </li>
-            <li>  <a href="Formacao.html"> Formação / Certificados </a>  </li>
-            <li>  <a href="Competencias.html"> Competências </a>  </li>
-        </ul>
+      <ul>
+        <li><a href="index.html">Perfil</a></li>
+        <li><a href="Experiencias.html">Experiências</a></li>
+        <li><a href="Formacao.html">Formação / Certificados</a></li>
+        <li><a href="Competencias.html">Competências</a></li>
+      </ul>
     </nav>
-    </header>
+  </header>
 
-    <div id="perfil">
-        <table>
-            <tr>
-                <th>
-                    <h1 class="digitandoNome">
-                         Lucas de Morais Fracaro<span class="cursor"></span>
-                    </h1>
-                </th>
-                <td rowspan="3" style="text-align: right; vertical-align: top;">
-                    <img src="imgs/lucas.jpg" width=270 style="float: right; padding-top: 30px;">
-                </td>
-            </tr>
+  <div id="perfil">
+    <table>
+      <tr>
+        <td><p class="digitandoCmd" id="cmdNome"></p></td>
+      </tr>
 
-            <tr><td>
-            <section id="descricao">
-                <p>
-                    Olá, eu sou o Lucas e tenho 16 anos, sou apaixonado em informática desde criança. <br>
-                    Estou no segundo ano do Ensino Médio e penso em me especializar em Backend. <br>
-                    Sempre disposto a aprender com os outros, em equipe ou individualmente. <br><br>
-                    Meus passatempos favoritos são: <br>
-                    Aprimorar meus projetos do GitHub, aprender mais sobre programação, e tocar guitarra 🎸
-                </p>
-            </section>
-            </td></tr>
+      <tr>
+        <td><p class="digitandoCmd" id="cmdNavbar"></p></td>
+      </tr>
 
-        </table>
-    </div>
+      <tr>
+        <td><p class="digitandoCmd" id="cmdDesc"></p></td>
+      </tr>
 
-    <footer id="contato">
-        <a class="links" target="_blank" href="https://wa.me/5511995323131">
-        <img src="imgs/WhatsApp.png" width="37px"></a>
+      <tr>
+        <td><p class="digitandoCmd" id="cmdFoto"></p></td>
+      </tr>
+      
+      <tr>
+        <td><p class="digitandoCmd" id="cmdContato"></p></td>
+      </tr>
 
-        <a class="links" target="_blank" href="https://www.linkedin.com/in/lucas-de-morais-fracaro-4159b4309/">
-        <img src="imgs/LinkedIn.png" width="34px"></a>
+      <tr>
+        <td><p class="digitandoCmd" id="cmdClear"></p></td>
+      </tr>
 
-        <a class="links" target="_blank" href="https://www.github.com/olucasfracaro">
-        <img src="imgs/GitHub.png" width="36px"></a>
+      <tr>
+        <th>
+          <h1 class="digitandoNome" id="nomeDigitado" style="visibility: hidden; padding-bottom: 13px;">
+            Lucas de Morais Fracaro<span class="cursor"></span>
+          </h1>
+        </th>
+        <td rowspan="3" style="text-align: right; vertical-align: top;">
+          <img src="imgs/lucas.jpg" width=270 style="float: right; visibility: hidden;" id="fotoPerfil">
+        </td>
+      </tr>
 
-        <a class="links" target="_blank" href="https://www.instagram.com/olucasfracaro">
-        <img src="imgs/Instagram.png" width="34px"></a>
-        
-        <a class="links" target="_blank" href="mailto:lucasfracaro0403@gmail.com">
-        <img src="imgs/Gmail.png" width="34px"></a>
-    </footer>
+      <tr><td>
+        <section id="descricao" style="visibility: hidden;">
+          <p>
+            Olá, eu sou o Lucas e tenho 16 anos, sou apaixonado em informática desde criança. <br>
+            Estou no segundo ano do Ensino Médio e penso em me especializar em Backend. <br>
+            Sempre disposto a aprender com os outros, em equipe ou individualmente. <br><br>
+            Meus passatempos favoritos são: <br>
+            Aprimorar meus projetos do GitHub, aprender mais sobre programação, e tocar guitarra 🎸
+          </p>
+        </section>
+      </td></tr>
+    </table>
+  </div>
 
+  <footer id="contato" style="visibility: hidden;">
+    <a class="links" target="_blank" href="https://wa.me/5511995323131">
+      <img src="imgs/WhatsApp.png" width="37px">
+    </a>
+
+    <a class="links" target="_blank" href="https://www.linkedin.com/in/lucas-de-morais-fracaro-4159b4309/">
+      <img src="imgs/LinkedIn.png" width="34px">
+    </a>
+
+    <a class="links" target="_blank" href="https://www.github.com/olucasfracaro">
+      <img src="imgs/GitHub.png" width="36px">
+    </a>
+
+    <a class="links" target="_blank" href="https://www.instagram.com/olucasfracaro">
+      <img src="imgs/Instagram.png" width="34px">
+    </a>
+    
+    <a class="links" target="_blank" href="mailto:lucasfracaro0403@gmail.com">
+      <img src="imgs/Gmail.png" width="34px">
+    </a>
+  </footer>
 </body>
+<script src="script.js"></script>
 </html>
