@@ -1,5 +1,26 @@
+const data = new Date();
+
+// Função para identificar o navegador
+function getBrowserName() {
+  const ua = navigator.userAgent;
+  if (/Edg\//.test(ua)) return "Microsoft Edge";
+  if (/OPR\//.test(ua)) return "Opera";
+  if (/Chrome\//.test(ua)) return "Chrome";
+  if (/Safari\//.test(ua) && !/Chrome\//.test(ua)) return "Safari";
+  if (/Firefox\//.test(ua)) return "Firefox";
+  if (/MSIE|Trident\//.test(ua)) return "Internet Explorer";
+  return "Navegador desconhecido";
+}
+
+// Animação de digitação com cursor
 function typeText(element, text, speed = 35) {
   return new Promise(resolve => {
+    if (!element) {
+      console.warn('typeText: Elemento não encontrado.', { text });
+      resolve();
+      return;
+    }
+
     let i = 0;
     function typing() {
       if (i <= text.length) {
@@ -7,48 +28,58 @@ function typeText(element, text, speed = 35) {
         i++;
         setTimeout(typing, speed);
       } else {
-        // Adiciona o cursor ao final do texto
         element.innerHTML += '<span class="cursor"></span>';
         setTimeout(() => {
-          // Remove o cursor após 200ms
           const cursor = element.querySelector('.cursor');
-          if (cursor) {
-            cursor.remove();
-          }
+          if (cursor) cursor.remove();
           resolve();
-        }, 200);
+        }, 500);
       }
     }
     typing();
   });
 }
 
+// Função auxiliar para atrasos
 function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-window.addEventListener('DOMContentLoaded', async function () {
-  const cmdEl = document.getElementById('cmdNome');
+document.addEventListener('DOMContentLoaded', async () => {
+  // Elementos principais
+  const cmdEl = document.getElementById('cmd');
+  const cmdInit = document.getElementById('cmdInit');
   const nomeH1 = document.getElementById('nomeDigitado');
-  const nomeSpan = nomeH1.querySelector('.cursor');
-  const cmdNavbarEl = document.getElementById('cmdNavbar');
   const header = document.querySelector('header');
   const descricao = document.getElementById('descricao');
-  const cmdDescEl = document.getElementById('cmdDesc');
-  const cmdFotoEl = document.getElementById('cmdFoto');
   const fotoPerfil = document.getElementById('fotoPerfil');
-  const cmdClearEl = document.getElementById('cmdClear');
   const contato = document.getElementById('contato');
-  const cmdContatoEl = document.getElementById('cmdContato');
 
-  const nomeText = nomeH1.textContent.replace(nomeSpan.textContent, "");
+  // Verificação básica de elementos essenciais
+  if (!cmdEl || !cmdInit || !nomeH1) {
+    console.error('Erro: Elementos essenciais não encontrados no DOM.');
+    return;
+  }
+
+  // Preparação do nome e cursor
+  const nomeSpan = nomeH1.querySelector('.cursor');
+  const nomeText = nomeH1.textContent.replace(nomeSpan?.textContent || "", "").trim();
   nomeH1.textContent = "";
 
-  // 1. Digita o comando do nome
+  // Data formatada
+  const pad = n => n.toString().padStart(2, '0');
+  const dateStr = `${pad(data.getDate())}-${pad(data.getMonth() + 1)}-${data.getFullYear()}`;
+  const timeStr = `${pad(data.getHours())}:${pad(data.getMinutes())}:${pad(data.getSeconds())}`;
+
+  // 1. Mostra data/navegador
+  await typeText(cmdInit, `Último login: ${dateStr} ${timeStr} em ${getBrowserName()}`);
+  await delay(1000);
+
+  // 2. Comando do nome
   await typeText(cmdEl, '> echo $NOME');
   await delay(500);
 
-  // 2. Mostra e digita o nome
+  // 3. Digita o nome com cursor animado
   nomeH1.style.visibility = 'visible';
   nomeH1.innerHTML = "";
 
@@ -62,9 +93,7 @@ window.addEventListener('DOMContentLoaded', async function () {
       } else {
         const cursor = nomeH1.querySelector('.cursor');
         setTimeout(() => {
-          if (cursor) {
-            cursor.remove();
-          }
+          if (cursor) cursor.remove();
           resolve();
         }, 200);
       }
@@ -72,39 +101,39 @@ window.addEventListener('DOMContentLoaded', async function () {
     typeNome();
   });
 
-  // 3. Digita ./menu.sh e mostra header
-  await typeText(cmdNavbarEl, '> ./menu.sh');
+  // 4. Digita ./menu.sh e mostra header
+  await typeText(cmdEl, '> ./menu.sh');
   await delay(1000);
   header.style.visibility = 'visible';
 
-  // 4. Digita ./descricao.sh e mostra descrição
+  // 5. ./descricao.sh e exibe descrição
   await delay(500);
-  await typeText(cmdDescEl, '> ./descricao.sh');
+  await typeText(cmdEl, '> ./descricao.sh');
   await delay(1000);
   descricao.style.visibility = 'visible';
 
-  // 5. Digita ./foto.sh e mostra imagem
+  // 6. ./foto.sh e mostra imagem
   await delay(1000);
-  await typeText(cmdFotoEl, '> ./foto.sh');
+  await typeText(cmdEl, '> ./foto.sh');
   await delay(1000);
   fotoPerfil.style.visibility = 'visible';
 
-  // 6. Digita ./contato.sh e mostra footer
+  // 7. ./contato.sh e mostra contato
   await delay(1000);
-  await typeText(cmdContatoEl, '> ./contato.sh');
+  await typeText(cmdEl, '> ./contato.sh');
   await delay(1000);
   contato.style.visibility = 'visible';
 
-  // 7. Digita clear e limpa os elementos
+  // 8. Comando clear e limpa terminal
   await delay(1000);
-  await typeText(cmdClearEl, '> clear');
+  await typeText(cmdEl, '> clear');
   await delay(750);
-  nomeSpan.style.display = 'none';
+
+  // Oculta cursor final se ainda existir
+  if (nomeSpan) {
+    nomeSpan.style.display = 'none';
+  }
 
   cmdEl.remove();
-  cmdNavbarEl.remove();
-  cmdDescEl.remove();
-  cmdFotoEl.remove();
-  cmdContatoEl.remove();
-  cmdClearEl.remove();
+  cmdInit.remove();
 });
