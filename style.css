@@ -174,11 +174,11 @@ ul.sublistaFormatada {
 /* Unificação das classes digitandoCmd */
 .digitandoCmd {
   display: inline-block;
-  overflow: hidden;
+  overflow: visible;
   white-space: nowrap;
   border-right: 0em solid transparent;
   letter-spacing: .05em;
-  animation: escrevendo 1.5s steps(16, end) forwards;
+  animation: escrevendo 1.5s steps(70, end) forwards;
   padding-left: 1px;
   color: var(--verde);
   padding: 20px 30px;
