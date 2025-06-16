@@ -13,7 +13,7 @@ function getBrowserName() {
 }
 
 // Animação de digitação com cursor
-function typeText(element, text, speed = 35) {
+function typeText(element, text, speed = 20) {
   return new Promise(resolve => {
     if (!element) {
       console.warn('typeText: Elemento não encontrado.', { text });
@@ -33,7 +33,7 @@ function typeText(element, text, speed = 35) {
           const cursor = element.querySelector('.cursor');
           if (cursor) cursor.remove();
           resolve();
-        }, 500);
+        }, 400);
       }
     }
     typing();
@@ -73,11 +73,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // 1. Mostra data/navegador
   await typeText(cmdInit, `Último login: ${dateStr} ${timeStr} em ${getBrowserName()}`);
-  await delay(1000);
+  await delay(400);
 
   // 2. Comando do nome
   await typeText(cmdEl, '> echo $NOME');
-  await delay(500);
+  await delay(400);
 
   // 3. Digita o nome com cursor animado
   nomeH1.style.visibility = 'visible';
@@ -103,31 +103,31 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // 4. Digita ./menu.sh e mostra header
   await typeText(cmdEl, '> ./menu.sh');
-  await delay(1000);
+  await delay(400);
   header.style.visibility = 'visible';
 
   // 5. ./descricao.sh e exibe descrição
-  await delay(500);
+  await delay(400);
   await typeText(cmdEl, '> ./descricao.sh');
-  await delay(1000);
+  await delay(400);
   descricao.style.visibility = 'visible';
 
   // 6. ./foto.sh e mostra imagem
-  await delay(1000);
+  await delay(400);
   await typeText(cmdEl, '> ./foto.sh');
-  await delay(1000);
+  await delay(400);
   fotoPerfil.style.visibility = 'visible';
 
   // 7. ./contato.sh e mostra contato
-  await delay(1000);
+  await delay(400);
   await typeText(cmdEl, '> ./contato.sh');
-  await delay(1000);
+  await delay(400);
   contato.style.visibility = 'visible';
 
   // 8. Comando clear e limpa terminal
-  await delay(1000);
+  await delay(400);
   await typeText(cmdEl, '> clear');
-  await delay(750);
+  await delay(400);
 
   // Oculta cursor final se ainda existir
   if (nomeSpan) {

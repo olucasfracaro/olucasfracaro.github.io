@@ -22,72 +22,113 @@
 
     <div id="competencias" class="divFormatada">
     <table>
-        <tr>  <td><h1 class="tituloPrimario"><span class="underline-animado"> 🎖 Competências </span></h1>  </td></tr>
-
-        <tr><td>
-        <p class="comFundo" style="padding: 10px;">
-        <ul class="listaFormatada">
-            <li>Judô
-                <ul class="sublistaFormatada">
-                    <li>Faixa Amarela</li>
+        <tr>
+            <td>
+                <h1 class="tituloPrimario">
+                    <span class="underline-animado"> 🎖 Competências </span>
+                </h1>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!-- <p class="comFundo" style="padding: 10px;"> -->
+                <ul class="listaFormatada">
+                    <li>
+                        <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                            <span class="dropdown-icon">▶</span> Judô</button>
+                        <ul class="sublistaFormatada dropdown-content" style="display:none;">
+                            <li>Faixa Amarela</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                            <span class="dropdown-icon">▶</span> Karatê</button>
+                        <ul class="sublistaFormatada dropdown-content" style="display:none;">
+                            <li>Faixa Laranja</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                            <span class="dropdown-icon">▶</span> Língua Inglesa</button>
+                        <ul class="sublistaFormatada dropdown-content" style="display:none;">
+                            <li>Conhecimento intermediário</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                            <span class="dropdown-icon">▶</span> Git e GitHub</button>
+                        <ul class="sublistaFormatada dropdown-content" style="display:none;">
+                            <li>Conhecimento intermediário</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                            <span class="dropdown-icon">▶</span> Linux</button>
+                        <ul class="sublistaFormatada dropdown-content" style="display:none;">
+                            <li>Conhecimento avançado</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                            <span class="dropdown-icon">▶</span> Python</button>
+                        <ul class="sublistaFormatada dropdown-content" style="display:none;">
+                            <li>Conhecimento intermediário/avançado</li>
+                            <li>Afinidade com <i>mysql-connector-python</i> e <i>Flask</i></li>
+                            <li>
+                                Fiz um programa de gerenciamento de despesas
+                                <a target="_blank" href="https://github.com/olucasfracaro/Garracio">¹</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                            <span class="dropdown-icon">▶</span> SQL</button>
+                        <ul class="sublistaFormatada dropdown-content" style="display:none;">
+                            <li>
+                                Conhecimento intermediário
+                                <a target="_blank" href="https://github.com/olucasfracaro/Garracio">¹</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                            <span class="dropdown-icon">▶</span> Java</button>
+                        <ul class="sublistaFormatada dropdown-content" style="display:none;">
+                            <li>Conhecimento básico</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                            <span class="dropdown-icon">▶</span> HTML, CSS, JS e PhP</button>
+                        <ul class="sublistaFormatada dropdown-content" style="display:none;">
+                            <li>
+                                Aprendendo, pouquíssima experiência
+                                <a target="_blank" href="https://github.com/olucasfracaro/Garracio">¹</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
-            </li>
-			<li>Karatê
-                    <ul class="sublistaFormatada">
-                        <li>Faixa Laranja</li>
-                    </ul>
-                </li>
-            <li>Língua Inglesa
-                <ul class="sublistaFormatada">
-                    <li>Conhecimento intermediário</li>
-                </ul>
-            </li>
-
-            <li>Git
-                <ul class="sublistaFormatada">
-                    <li>Conhecimento intermediário</li>
-                </ul>
-
-            <li>Python
-                <ul class="sublistaFormatada">
-                    <li>Conhecimento intermediário/avançado</li>
-                </ul>
-
-                <ul class="sublistaFormatada">
-                    <li>Afinidade com <i>mysql-connector-python</i> e <i>Flask</i></li>
-                </ul>
-
-                <ul class="sublistaFormatada">
-                    <li>Fiz um programa de gerenciamento de despesas
-                    <a target="_blank" href="https://github.com/olucasfracaro/Garracio">¹</a></li>
-                </ul>
-            </li>
-            <li>SQL
-                <ul class="sublistaFormatada">
-                    <li>Conhecimento intermediário
-                    <a target="_blank" href="https://github.com/olucasfracaro/Garracio">¹</a></li>
-                </ul>
-            </li>
-            <li>Java
-                <ul class="sublistaFormatada">
-                    <li>Conhecimento básico</li>
-                </ul>
-            </li>
-            <li>HTML, CSS e JavaScript
-                <ul class="sublistaFormatada">
-                    <li>Aprendendo, pouquíssima experiência
-                    <a target="_blank" href="https://github.com/olucasfracaro/Garracio">¹</a></li>
-                </ul>
-            </li>
-            </ul>
-        </p>
-        </td></tr>
-    </table> 
+                <!-- </p> -->
+            </td>
+        </tr>
+    </table>
     </div>
 </body>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   document.querySelector('.underline-animado').classList.add('animar');
 });
+
+function toggleDropdown(btn) {
+  const content = btn.nextElementSibling;
+  const icon = btn.querySelector('.dropdown-icon');
+  if (content.style.display === "block") {
+    content.style.display = "none";
+    icon.textContent = "▶";
+  } else {
+    content.style.display = "block";
+    icon.textContent = "▼";
+  }
+}
 </script>
 </html>

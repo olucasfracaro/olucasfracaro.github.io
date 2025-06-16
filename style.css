@@ -116,9 +116,12 @@ p.comFundo {
 ul.listaFormatada {
   background-color: var(--verdeClaro);
   padding-left: 10%;
+  padding-top: 20px;
   padding-bottom: 20px;
   text-align: left;
   font-size: var(--fonteLi);
+  list-style-type: none;
+  /* min-width: 500px; */
 }
 
 ul.listaFormatada li {
@@ -130,6 +133,35 @@ ul.sublistaFormatada {
   padding-left: 10px;
   text-align: left;
   font-size: var(--fonteLi);
+  list-style-type: square;
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: var(--fonteLi);
+  padding: 0;
+  margin: 0 0 0 -5px;
+  color: inherit;
+  text-align: left;
+  font-family: "Jersey 10", sans-serif;
+}
+
+.dropdown-icon {
+  font-size: 0.65em; /* ou o tamanho que você quiser */
+  vertical-align: middle;
+  margin-right: 3px; /* Espaço entre o ícone e o texto */
+  position: relative;
+  top: -1px;
+}
+
+.dropdown-btn:focus {
+  outline: none;
+}
+
+.dropdown-content {
+  margin-left: 20px;
 }
 
 #descricao {
@@ -345,8 +377,8 @@ ul.sublistaFormatada {
   bottom: -4px;
   width: 0;
   height: 4px;
-  background: #06c432;
-  transition: width 0.45s ease;
+  background: var(--verde);
+  transition: width 0.7s ease;
 }
 
 .underline-animado.animar::after {
