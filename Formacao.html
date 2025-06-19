@@ -25,25 +25,41 @@
           <tr>  <td><h1 class="tituloPrimario"><span class="underline-animado"> 🎓 Formação </span></h1>  </td></tr>
 
           <tr><td>
-          <p class="comFundo">
+          <p class="comFundo" style="border-radius: 15px;">
               Em 2025 estou cursando o segundo ano do Ensino Médio no Colégio ENIAC
               e fazendo o técnico integrado de informática.<br><br>
-              O primeiro certificado que recebi foi em 2024 do CMOV, onde aprendi sobre carreira e empregabilidade. <br>
-              O segundo é do curso de férias de 2025 do ENIAC, no qual aperfeiçoei minhas habilidades em versionamento de código.
+              O primeiro certificado que recebi foi em Novembro de 2024 do CMOV, onde aprendi sobre carreira e empregabilidade. <br>
+              O segundo foi do curso de férias em Janeiro de 2025 do ENIAC, no qual aperfeiçoei minhas habilidades em versionamento de código. <br>
+              Além disso, participei de diversos cursos e <i>workshops</i>, como o curso de matemática financeira e planilhas, 
+              sistemas operacionais, inteligência artificial, descomplicando hardware e redes de computadores.<br><br>
           </p>
           </td></tr>
       </table> 
     </div>
 
     <div id="certificados" class="divFormatada">
-        <div class="carousel-container">
-            <div class="carousel-slide">
-                <img src="certs/Certificado ENIAC - Git e GitHub.png" alt="Certificado ENIAC" class="carousel-img" tabindex="0">
-                <img src="certs/Certificado CMOV - Carreira e Empregabilidade.png" alt="Certificado CMOV" class="carousel-img" tabindex="0">
-            </div>
-            <button class="carousel-btn prev">&#10094;</button>
-            <button class="carousel-btn next">&#10095;</button>
-        </div>
+      <div class="carousel-container">
+        <h1 class="tituloSecundario"> 🏆️ Certificados </h1>
+          <div class="carousel-slide">
+              <img src="certs/ENIAC - Git e GitHub.png" alt="Certificado Git e GitHub" class="carousel-img" tabindex="0">
+              <img src="certs/CMOV - Carreira e Empregabilidade.png" alt="Certificado Carreira e Empregabilidade" class="carousel-img" tabindex="0">
+          </div>
+          <button class="carousel-btn prev">&#10094;</button>
+          <button class="carousel-btn next">&#10095;</button>
+      </div>
+
+      <div class="carousel-container">
+        <h1 class="tituloSecundario"> Projeto de Vida 2025.1 </h1>
+          <div class="carousel-slide">
+              <img src="certs/PDV 2025.1/ENIAC - Matemática Financeira e Planilhas.jpg" alt="Certificado Matemática Financeira e Planilhas" class="carousel-img" tabindex="0">
+              <img src="certs/PDV 2025.1/ENIAC - Sistemas Operacionais.jpg" alt="Certificado Sistemas Operacionais" class="carousel-img" tabindex="0">
+              <img src="certs/PDV 2025.1/ENIAC - Inteligência Artificial.jpg" alt="Certificado Inteligência Artificial" class="carousel-img" tabindex="0">
+              <img src="certs/PDV 2025.1/ENIAC - Descomplicando Hardware.jpg" alt="Certificado Descomplicando Hardware" class="carousel-img" tabindex="0">
+              <img src="certs/PDV 2025.1/ENIAC - Redes de Computadores na Prática.jpg" alt="Certificado Redes de Computadores na Prática" class="carousel-img" tabindex="0">
+          </div>
+          <button class="carousel-btn prev">&#10094;</button>
+          <button class="carousel-btn next">&#10095;</button>
+      </div>
     </div>
 
         <!-- Modal para zoom -->
@@ -53,61 +69,67 @@
     </div>
 
 </body>
+
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   document.querySelector('.underline-animado').classList.add('animar');
 });
 
+// Carrossel independente para cada .carousel-container
 document.addEventListener("DOMContentLoaded", function() {
-  const imgs = document.querySelectorAll('.carousel-img');
-  let current = 0;
+  // Para cada carrossel na página
+  document.querySelectorAll('.carousel-container').forEach(function(container) {
+    const imgs = container.querySelectorAll('.carousel-img');
+    let current = 0;
 
-  function show(index) {
-    imgs.forEach((img, i) => img.classList.toggle('active', i === index));
-  }
-  show(current);
-
-  document.querySelector('.carousel-btn.next').onclick = () => {
-    current = (current + 1) % imgs.length;
+    function show(index) {
+      imgs.forEach((img, i) => img.classList.toggle('active', i === index));
+    }
     show(current);
-  };
-  document.querySelector('.carousel-btn.prev').onclick = () => {
-    current = (current - 1 + imgs.length) % imgs.length;
-    show(current);
-  };
 
-  // Zoom Modal
+    container.querySelector('.carousel-btn.next').onclick = () => {
+      current = (current + 1) % imgs.length;
+      show(current);
+    };
+    container.querySelector('.carousel-btn.prev').onclick = () => {
+      current = (current - 1 + imgs.length) % imgs.length;
+      show(current);
+    };
+
+    // Zoom Modal
+    const modal = document.getElementById("modalZoom");
+    const modalImg = document.getElementById("imgZoom");
+    const closeBtn = document.querySelector('.close-zoom');
+
+    imgs.forEach(img => {
+      img.onclick = function() {
+        modal.classList.add('open');
+        modalImg.src = this.src;
+        modalImg.alt = this.alt;
+      };
+      img.onkeydown = function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      };
+    });
+  });
+
+  // Modal - fechar
   const modal = document.getElementById("modalZoom");
   const modalImg = document.getElementById("imgZoom");
   const closeBtn = document.querySelector('.close-zoom');
-
-  imgs.forEach(img => {
-    img.onclick = function() {
-      modal.classList.add('open');
-      modalImg.src = this.src;
-      modalImg.alt = this.alt;
-    };
-    img.onkeydown = function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        this.click();
-      }
-    };
-  });
-
   closeBtn.onclick = function() {
     modal.classList.remove('open');
     modalImg.src = "";
   };
-
   modal.onclick = function(e) {
     if (e.target === modal) {
       modal.classList.remove('open');
       modalImg.src = "";
     }
   };
-
-  // ESC para fechar
   window.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && modal.classList.contains('open')) {
       modal.classList.remove('open');
@@ -115,7 +137,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
-
 </script>
 
 </html>

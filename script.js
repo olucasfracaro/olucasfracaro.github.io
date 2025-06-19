@@ -75,11 +75,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   await typeText(cmdInit, `Último login: ${dateStr} ${timeStr} em ${getBrowserName()}`);
   await delay(400);
 
-  // 2. Comando do nome
+  // 2. Digita ./menu.sh e mostra header
+  await typeText(cmdEl, '> ./menu.sh');
+  await delay(400);
+  header.style.visibility = 'visible';
+  
+  // 3. Comando do nome
   await typeText(cmdEl, '> echo $NOME');
   await delay(400);
-
-  // 3. Digita o nome com cursor animado
+  
+  // 4. Digita o nome com cursor animado
   nomeH1.style.visibility = 'visible';
   nomeH1.innerHTML = "";
 
@@ -101,22 +106,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     typeNome();
   });
 
-  // 4. Digita ./menu.sh e mostra header
-  await typeText(cmdEl, '> ./menu.sh');
-  await delay(400);
-  header.style.visibility = 'visible';
 
-  // 5. ./descricao.sh e exibe descrição
-  await delay(400);
-  await typeText(cmdEl, '> ./descricao.sh');
-  await delay(400);
-  descricao.style.visibility = 'visible';
-
-  // 6. ./foto.sh e mostra imagem
+  // 5. ./foto.sh e mostra imagem
   await delay(400);
   await typeText(cmdEl, '> ./foto.sh');
   await delay(400);
   fotoPerfil.style.visibility = 'visible';
+  
+  // 6. ./descricao.sh e exibe descrição
+  await delay(400);
+  await typeText(cmdEl, '> ./descricao.sh');
+  await delay(400);
+  descricao.style.visibility = 'visible';
 
   // 7. ./contato.sh e mostra contato
   await delay(400);
