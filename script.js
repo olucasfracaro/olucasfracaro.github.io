@@ -73,16 +73,16 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // 1. Mostra data/navegador
   await typeText(cmdInit, `Último login: ${dateStr} ${timeStr} em ${getBrowserName()}`);
-  await delay(400);
+  await delay(200);
 
   // 2. Digita ./menu.sh e mostra header
   await typeText(cmdEl, '> ./menu.sh');
-  await delay(400);
+  await delay(200);
   header.style.visibility = 'visible';
   
   // 3. Comando do nome
   await typeText(cmdEl, '> echo $NOME');
-  await delay(400);
+  await delay(200);
   
   // 4. Digita o nome com cursor animado
   nomeH1.style.visibility = 'visible';
@@ -108,27 +108,27 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
   // 5. ./foto.sh e mostra imagem
-  await delay(400);
+  await delay(200);
   await typeText(cmdEl, '> ./foto.sh');
-  await delay(400);
+  await delay(200);
   fotoPerfil.style.visibility = 'visible';
   
   // 6. ./descricao.sh e exibe descrição
-  await delay(400);
+  await delay(200);
   await typeText(cmdEl, '> ./descricao.sh');
-  await delay(400);
+  await delay(200);
   descricao.style.visibility = 'visible';
 
   // 7. ./contato.sh e mostra contato
-  await delay(400);
+  await delay(200);
   await typeText(cmdEl, '> ./contato.sh');
-  await delay(400);
+  await delay(200);
   contato.style.visibility = 'visible';
 
   // 8. Comando clear e limpa terminal
-  await delay(400);
+  await delay(200);
   await typeText(cmdEl, '> clear');
-  await delay(400);
+  await delay(200);
 
   // Oculta cursor final se ainda existir
   if (nomeSpan) {
